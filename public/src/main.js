@@ -4,7 +4,9 @@ import Vue from 'vue'
 import vueRouter from 'vue-router'
 
 //页面组件
-import App from './App.vue'
+import noteHome from './pages/note/notehome.vue'
+import noteDetail from './pages/note/notedetail.vue'
+import addNote from './pages/note/addnote.vue'
 
 Vue.use(vueRouter);
 
@@ -12,14 +14,28 @@ Vue.use(vueRouter);
 new Vue({
   el: '#app',
   components:{
-      app:App,
+  	notehome:noteHome,
+  	notedetail:noteDetail,
+  	addnote:addNote,
+  },
+  data(){
+  	return{
+  		
+  	}
   },
   router:new vueRouter({
       routes:[
       {
           path:'/',
-          component:App,
+          component:noteHome,
+      },{
+      path:'/noteDetail',
+      component:noteDetail,
       },
+      {
+      	path:'/addNote',
+      	component:addNote
+      }
       ]
   }),
 })
