@@ -3,19 +3,19 @@
 </template>
 <script type="text/javascript">
 	import noteList from './notelist.vue'
+	import $ from 'jquery'
 	export default {
 		components: {
 			notelist: noteList,
 		},
 		data() {
 			return {
-				msg:"看这里",
 				backer: {
 					noteList: []
 				}
 			}
 		},
-		created() {
+		created(){
 			this.initDate();
 		},
 		methods: {
@@ -23,19 +23,17 @@
 				this.getNoteList();
 			},
 			getNoteList() {
-				var notelist = [];
-				const data = {
-					id: 21,
-					title: "今天刚开始的第一篇日记",
-					date: '2017-02-21',
-					des: "这是今天的第一篇日记，这是用来测试的",
-				}
-				notelist.push(data);
-				notelist.push(data);
-				notelist.push(data);
-				notelist.push(data);
-				this.backer.noteList = notelist;
-				console.log(this.backer);
+				var self=this;
+				$.ajax({
+					method:"post",
+					url:'/note/notelist',
+					success:(data)=>{
+						data=JSON.parse(data);
+						for(var i=0;i<data.length;i++){
+							self.backer.noteList.push(data[i]);
+						}
+					}
+				});
 			},
 		},
 	}

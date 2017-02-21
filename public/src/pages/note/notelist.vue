@@ -17,16 +17,13 @@
 			}
 		},
 		mounted(){
-			
-			console.log(this.notelist);
-			console.log("我就不信了");
 		},
 		methods:{
 			toDetail(id){
-				router.use('/noteDetail/id='+id);
+				router.push('/noteDetail/id='+id);
 			},
 			toAdd(){
-				router.use('/addNote')
+				router.push('/addNote');
 			}
 		}
 	}

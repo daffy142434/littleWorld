@@ -1,5 +1,9 @@
 <template>
-	<div>{{msg}}</div>
+	<div class="nothing">
+			<div class="note-date">{{note.date}}</div>
+			<div class="note-title">{{note.title}}</div>
+			<div class="note-des">{{note.des}}</div>
+	</div>
 </template>
 <script type="text/javascript">
 	export default {
@@ -8,14 +12,32 @@
 		},
 		data(){
 			return{
-				msg:"看看这是啥"
+				note:{
+					id:"",
+					date:"",
+					title:"",
+					des:"",
+				}
 			}
 		},
-		mounted(){
-			
+		created(){
+			console.log("what?");
+			this.getDetail(1);
 		},
 		methods:{
-			
+			getDetail(id){
+				var self=this;
+				$.ajax({
+					type:"post",
+					url:"/note/notedetail",
+					data:{id:id},
+					async:true,
+					success:(data)=>{
+						console.log("detail进入了")
+						self.note=JSON.parse(data);
+					}
+				});
+			}
 		}
 	}
 </script>
