@@ -1,5 +1,8 @@
 <template>
+    <div>
 	<notelist v-bind:notelist="backer.noteList"></notelist>
+	<button @touchend="toAdd()">添加一片文章</button>
+	</div>
 </template>
 <script type="text/javascript">
 	import noteList from './notelist.vue'
@@ -37,6 +40,9 @@
 				this.backer.noteList = notelist;
 				console.log(this.backer);
 			},
+			toAdd(){
+			    router.push('addNote')
+			}
 		},
 	}
 </script>

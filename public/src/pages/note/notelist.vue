@@ -5,7 +5,6 @@
 			<div class="note-title">{{item.title}}</div>
 			<div class="note-des">{{item.des}}</div>
 		</div>
-		<button @click="toAdd()">添加日记</button>
 	</div>
 </template>
 <script type="text/javascript">
@@ -17,17 +16,13 @@
 			}
 		},
 		mounted(){
-			
 			console.log(this.notelist);
 			console.log("我就不信了");
 		},
 		methods:{
 			toDetail(id){
-				router.use('/noteDetail/id='+id);
+				router.push({name:'noteDetail',params:{noteId:id}});
 			},
-			toAdd(){
-				router.use('/addNote')
-			}
 		}
 	}
 </script>
