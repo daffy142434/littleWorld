@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var jqeury=require('jquery')
 
 module.exports = {
   entry: './public/src/main.js',
@@ -53,6 +54,12 @@ module.exports = {
   performance: {
     hints: false
   },
+  plugins:[
+  new webpack.ProvidePlugin({
+  	$:"jquery",
+  	JQuery:"jqeury"
+  })
+  ],
   devtool: '#eval-source-map'
 }
 
