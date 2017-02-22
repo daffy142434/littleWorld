@@ -43,4 +43,16 @@ new Vue({
 })
 
 //全局工具配置
+
+
+var html = document.documentElement;
+var windowWidth = html.clientWidth;
+    html.style.fontSize = windowWidth / 3.75 + 'px';
+    
+window.addEventListener('resize', function() {
+    var html = document.documentElement;
+    var windowWidth = html.clientWidth;
+        html.style.fontSize = windowWidth / 3.75 + 'px';
+}, false);
+
 window.router=router;

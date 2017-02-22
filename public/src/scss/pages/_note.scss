@@ -1,0 +1,19 @@
+.note-box{
+    background-color: $bg_main;
+    .note-item{
+        margin-bottom: .1rem;
+        padding: 0 .1rem;
+        background-color: $bg_white;
+        font-size: .14rem;
+        color: $color_main;
+        .note-date{
+            color: $color_tips;
+            font-size: .12rem;
+        }
+        .note-title{
+            font-size: .16rem;
+            font-weight: bold;
+        }
+    }
+    
+}
